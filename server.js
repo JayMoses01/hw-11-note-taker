@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const uuid = require('./Develop/helpers/uuid.js');
+const uuid = require('./helpers/uuid.js');
 
 require('dotenv');
 const PORT = process.env.PORT || 3001;
@@ -11,15 +11,15 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('Develop'));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     console.log(__dirname);
-  res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '/Develop/public/notes.html'));
+  res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
 
 // POST request to add a note
@@ -40,7 +40,7 @@ app.post('/api/notes', (req, res) => {
       };
   
       // Obtain existing notes
-      fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
+      fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
           console.error(err);
         } else {
@@ -52,7 +52,7 @@ app.post('/api/notes', (req, res) => {
   
           // Write updated notes back to the file
           fs.writeFile(
-            './Develop/db/db.json',
+            './db/db.json',
             JSON.stringify(parsedNotes, null, 4),
             (writeErr) =>
               writeErr
