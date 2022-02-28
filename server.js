@@ -4,7 +4,12 @@ const fs = require('fs');
 
 const app = express();
 const uuid = require('./Develop/helpers/uuid.js');
-const PORT = 3001;
+
+require('dotenv');
+const PORT = process.env.PORT || 3001;
+
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
