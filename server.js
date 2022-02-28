@@ -8,36 +8,19 @@ const uuid = require('./Develop/helpers/uuid.js');
 require('dotenv');
 const PORT = process.env.PORT || 3001;
 
-
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
-
-/*
-app.get('/', (req, res) => res.send('Navigate to /public/index.html or /public/notes.html'));
-*/
 
 app.get('/', (req, res) => {
     console.log(__dirname);
   res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
 });
 
-/*
-app.get('/api/landing', (req, res) => {
-    console.log(__dirname);
-  res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
-});
-*/
-
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/Develop/public/notes.html'))
 );
-
-
-// Need to make it so when on the Notes page, clicking the plus sign saves the note. I'm guessing this is a POST that I need to add.
 
 // POST request to add a note
 app.post('/api/notes', (req, res) => {
