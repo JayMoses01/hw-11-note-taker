@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('public'));
+app.use(express.static('Develop'));
 
 app.get('/', (req, res) => {
     console.log(__dirname);
@@ -36,7 +36,7 @@ app.post('/api/notes', (req, res) => {
       const newNote = {
         title,
         text,
-        note_id: uuid(),
+        id: uuid(),
       };
   
       // Obtain existing notes
@@ -73,38 +73,6 @@ app.post('/api/notes', (req, res) => {
       res.status(500).json('Error in adding note');
     }
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.listen(PORT, () => {
   console.log(`Note Taker app is listening at http://localhost:${PORT}`)
