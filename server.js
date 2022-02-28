@@ -18,9 +18,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
 });
 
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/Develop/public/notes.html'))
-);
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Develop/public/notes.html'));
+});
 
 // POST request to add a note
 app.post('/api/notes', (req, res) => {
