@@ -16,14 +16,23 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
+/*
 app.get('/', (req, res) => res.send('Navigate to /public/index.html or /public/notes.html'));
+*/
 
-app.get('/api/landing', (req, res) => {
+app.get('/', (req, res) => {
     console.log(__dirname);
   res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
 });
 
-app.get('/api/notes', (req, res) =>
+/*
+app.get('/api/landing', (req, res) => {
+    console.log(__dirname);
+  res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
+});
+*/
+
+app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/Develop/public/notes.html'))
 );
 
