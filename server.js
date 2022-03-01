@@ -68,6 +68,7 @@ app.post('/api/notes', (req, res) => {
       };
   
       console.log(response);
+      console.log(newNote); //JRM: I just added.
       res.status(201).json(response);
     } else {
       res.status(500).json('Error in adding note');

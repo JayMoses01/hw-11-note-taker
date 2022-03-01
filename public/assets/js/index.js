@@ -66,6 +66,7 @@ const renderActiveNote = () => {
   }
 };
 
+// JRM: Adding newNote into parameter didn't work (made save btn go away).
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
@@ -170,7 +171,7 @@ const renderNoteList = async (notes) => {
   }
 };
 
-// Gets notes from the db and renders them to the sidebar
+// Gets notes from the db and renders them to the sidebar. // JRM: I added data in both parameters below.
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
