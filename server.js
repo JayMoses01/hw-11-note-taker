@@ -12,15 +12,14 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('./public'));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    console.log(__dirname);
-  res.sendFile(path.join(__dirname, './public/index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/notes.html'));
+  res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
 
 app.get("/api/notes", (req, res) => {
@@ -43,11 +42,6 @@ app.post('/api/notes', (req, res) => {
       text,
       id: uuid(),
     };
-
-    // Obtain existing notes
-
-    
-        // Convert string into JSON object
 
         // Add a new note
         db.push(newNote);
