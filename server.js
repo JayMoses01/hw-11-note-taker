@@ -69,6 +69,47 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+
+//DELETE request to delete a note. NOT FINISHED YET, BUT EVERYTHING ELSE WORKS.
+/*
+app.delete('api/notes/:id', (req,res) => {
+  // Log that a DELETE request was received
+  console.info(`${req.method} request received to delete note ${req.params.id}`);
+
+    // Obtain existing notes
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        // Convert string into JSON object
+        const parsedReviews = JSON.parse(data);
+
+
+        // Delete note
+        param("id", (req, res, next, id) => {
+          console.log(id)
+          next()
+        })
+
+        // Write updated notes back to the file
+        fs.writeFile(
+          './db/db.json',
+          JSON.stringify(db),
+          (writeErr) =>
+            writeErr
+              ? console.error(writeErr)
+              : console.info('Successfully updated notes!')
+        );
+
+      res.sendStatus(200);
+    } else {
+      res.status(500).json('Error in adding note');
+    }
+  });
+*/
+
+
+
 app.listen(PORT, () => {
   console.log(`Note Taker app is listening at http://localhost:${PORT}`)
 });
